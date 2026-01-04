@@ -60,6 +60,12 @@ Tarayıcıda http://127.0.0.1:5000 adresine gidin.
 
 Not: İlk çalıştırmada veritabanı (`database.db`) otomatik oluşturulur.
 
+# Kullanıcı Bilgileri 
+Kullanım ve deneme için birkaç kullanıcı oluşturulmuştur.
+1. Editör mail: editor@example.com şifre: editorpass
+2. Üye mail: uye1@example.com şifre: uye1pass
+3. Üye mail: uye2@exampleçcom şifre: uye2pass
+
 ---
 
 ## 📁 Önemli Dosya/Dizin Yapısı
