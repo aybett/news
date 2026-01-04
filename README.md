@@ -63,7 +63,7 @@ Not: İlk çalıştırmada veritabanı (`database.db`) otomatik oluşturulur.
 Kullanım ve deneme için birkaç kullanıcı oluşturulmuştur.
 1. Editör mail: editor@example.com şifre: editorpass
 2. Üye mail: uye1@example.com şifre: uye1pass
-3. Üye mail: uye2@exampleçcom şifre: uye2pass
+3. Üye mail: uye2@example.com şifre: uye2pass
 
 ---
 
