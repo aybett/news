@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Haber Sitesi
 
 **Açıklama**
@@ -86,6 +85,3 @@ Not: İlk çalıştırmada veritabanı (`database.db`) otomatik oluşturulur.
 Bu depo için varsayılan ve hafif bir lisans önerisi: **MIT**. 
 
 
-=======
-# news
->>>>>>> a640d13e44fb8aeeba2c700cf9ebdb9d8de3b857
