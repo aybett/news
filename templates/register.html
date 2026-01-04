@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <img src="{{ url_for('static', filename='uploads/logo.png') }}" alt="Haber Sitesi" class="auth-logo">
+      <h3 class="text-center mb-3">Kayıt</h3>
+      <form method="post">
+        <div class="mb-3">
+          <label class="form-label">Kullanıcı Adı</label>
+          <input class="form-control" name="username" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">E-posta</label>
+          <input class="form-control" type="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Şifre</label>
+          <input class="form-control" type="password" name="password" required>
+        </div>
+        <div class="d-grid">
+          <button class="btn btn-primary" type="submit">Kayıt Ol</button>
+        </div>
+        <div class="text-center mt-3"><a class="btn btn-link p-0" href="{{ url_for('auth.login') }}">Zaten hesabınız var mı? Giriş Yap</a></div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

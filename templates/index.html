@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Haberler</h1>
+
+  {% if categories %}
+    <div class="mb-3">
+      <strong>Kategoriler:</strong>
+      <a href="{{ url_for('news.index') }}" class="btn btn-sm btn-outline-secondary ms-2 {% if not selected_category %}active{% endif %}">Tümü</a>
+      {% for cat in categories %}
+        <a href="{{ url_for('news.index', category=cat) }}" class="btn btn-sm btn-outline-primary ms-1 {% if selected_category==cat %}active{% endif %}">{{ cat }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% for n in news %}
+    <div class="mb-3 card p-3">
+      <a href="{{ url_for('news.news_detail', id=n.id) }}"><h3>{{ n.title }}</h3></a>
+      {% if n.category %}<span class="badge bg-secondary">{{ n.category }}</span>{% endif %}
+      <p class="text-muted">{{ n.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+      <p>{{ n.content[:200] }}{% if n.content|length > 200 %}... <a href="{{ url_for('news.news_detail', id=n.id) }}">Devamı</a>{% endif %}</p>
+    </div>
+  {% else %}
+    <p>Henüz haber yok.</p>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Editör Ekranı</h2>
+  <a class="btn btn-success mb-3" href="{{ url_for('admin.add_news') }}">Yeni Haber Ekle</a>
+  <a class="btn btn-secondary mb-3 ms-2" href="{{ url_for('admin.users') }}">Üyeleri Yönet</a>
+
+  <table class="table">
+    <thead><tr><th>Id</th><th>Başlık</th><th>Kategori</th><th>İşlemler</th></tr></thead>
+    <tbody>
+    {% for n in news %}
+      <tr>
+        <td>{{ n.id }}</td>
+        <td><a href="{{ url_for('news.news_detail', id=n.id) }}">{{ n.title }}</a></td>
+        <td>{{ n.category or '-' }}</td>
+        <td>
+          <a class="btn btn-sm btn-primary" href="{{ url_for('admin.edit_news', id=n.id) }}">Düzenle</a>
+          <a class="btn btn-sm btn-danger" href="{{ url_for('admin.delete_news', id=n.id) }}">Sil</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

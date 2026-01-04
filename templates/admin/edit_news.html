@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Haber Düzenle</h2>
+  <form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">Başlık</label>
+      <input class="form-control" name="title" value="{{ news.title }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Kategori (örn. Teknoloji, Dünya, Spor)</label>
+      <input class="form-control" name="category" value="{{ news.category or '' }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">İçerik</label>
+      <textarea class="form-control" name="content" rows="6" required>{{ news.content }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Mevcut Dosya</label>
+      {% if news.image %}
+        {% set ext = news.image.split('.')[-1].lower() %}
+        {% if ext in ['png','jpg','jpeg','gif','bmp','webp'] %}
+          <div><img src="{{ url_for('static', filename='uploads/' ~ news.image) }}" class="img-fluid mb-2" style="max-width:300px;"></div>
+        {% elif ext == 'pdf' %}
+          <div class="mb-2"><a href="{{ url_for('static', filename='uploads/' ~ news.image) }}" target="_blank" class="btn btn-outline-secondary">PDF'i aç</a></div>
+        {% else %}
+          <div class="mb-2"><a href="{{ url_for('static', filename='uploads/' ~ news.image) }}" target="_blank" class="btn btn-outline-secondary">Dosyayı indir / aç ({{ news.image }})</a></div>
+        {% endif %}
+      {% else %}
+        <div>Dosya yok.</div>
+      {% endif %}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Yeni Fotoğraf / Dosya (opsiyonel)</label>
+      <input class="form-control" type="file" name="image" accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.zip,.rar">
+    </div>
+    <button class="btn btn-primary" type="submit">Güncelle</button>
+  </form>
+{% endblock %}

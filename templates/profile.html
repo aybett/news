@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Profil</h2>
+  <div class="d-flex align-items-center mb-3">
+    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width:60px;height:60px;font-weight:600; font-size:20px;">
+      {{ user.username[0]|upper if user and user.username }}
+    </div>
+    <div>
+      <h4>{{ user.username }}</h4>
+      {% if user.email %}<small class="text-muted">{{ user.email }}</small>{% endif %}
+    </div>
+  </div>
+
+  <h5>Yaptığı Yorumlar</h5>
+  {% if user_comments %}
+    {% for c in user_comments %}
+      <div class="border rounded p-2 mb-2">
+        <div><small class="text-muted">{{ c.created_at.strftime('%Y-%m-%d %H:%M') }}</small></div>
+        <div class="mt-1">{{ c.content }}</div>
+        <div class="mt-2"><a href="{{ url_for('news.news_detail', id=c.news_id) }}">Yorum yapılan habere git</a></div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Henüz yorum yok.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Yeni Haber Ekle</h2>
+  <form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">Başlık</label>
+      <input class="form-control" name="title" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Kategori (örn. Teknoloji, Dünya, Spor)</label>
+      <input class="form-control" name="category">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">İçerik</label>
+      <textarea class="form-control" name="content" rows="6" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Fotoğraf / Dosya (opsiyonel)</label>
+      <input class="form-control" type="file" name="image" accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.zip,.rar">
+    </div>
+    <button class="btn btn-success" type="submit">Kaydet</button>
+  </form>
+{% endblock %}

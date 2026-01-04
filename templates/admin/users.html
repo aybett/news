@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Üyeler</h2>
+  <table class="table">
+    <thead><tr><th>Id</th><th>Kullanıcı</th><th>Email</th><th>Rol</th><th>İşlemler</th></tr></thead>
+    <tbody>
+      {% for u in users %}
+        <tr>
+          <td>{{ u.id }}</td>
+          <td>{{ u.username }}</td>
+          <td>{{ u.email }}</td>
+          <td>{{ u.role }}</td>
+          <td>
+            {% if current_user.id != u.id %}
+              <a class="btn btn-sm btn-danger" href="{{ url_for('admin.delete_user', id=u.id) }}">Sil</a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,7 @@
+Flask>=2.2
+Flask-Login>=0.6
+Flask-Migrate>=4.0
+Flask-SQLAlchemy>=3.0
+# Optional / dev: pin specific versions with `pip freeze > requirements.txt` after installing
+# Example: pip install Flask Flask-Login Flask-Migrate Flask-SQLAlchemy
+# Then run: pip freeze > requirements.txt
